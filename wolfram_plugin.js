@@ -22,10 +22,10 @@ WolframPlugin.prototype.respond = function (query, channel, bot) {
 				}
 				console.log("Searching '" + query + "' on WolframAlpha.");
 				//prints all results as images... could be a lot of them
+
 				for(var n = 0; n < result.length; n++){
 					if("image" in result[n].subpods[0]) {bot.sendMessage(channel, result[n].title + ": " + result[n].subpods[0].image + ".gif");}
 				}
-				
 			}
 		});
 
