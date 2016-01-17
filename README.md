@@ -46,4 +46,4 @@ To start the bot just run
 `node discord_bot.js`.
 
 # Or...
-if you're too lazy to do any of that shit just join [HoloBot's server](https://discord.gg/0k2Ikrtr1C6Oypqc) and use `~join-server`
+if you're too lazy to do any of that shit just join [HoloBot's server](https://discord.gg/0ltfOcHtTFbikkwM) and use `~join-server`
