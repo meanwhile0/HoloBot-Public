@@ -108,10 +108,10 @@ var commands = {
             console.log(bot.joinServer(suffix,function(error,server) {
                 console.log("callback: " + arguments);
                 if(error){
-                    bot.sendMessage(msg.channel,"failed to join: " + error);
+                    bot.sendMessage(msg.author, "Failed to join: " + error);
                 } else {
                     console.log("Joined server " + server);
-                    bot.sendMessage(msg.channel,"Successfully joined " + server);
+                    bot.sendMessage(msg.author, "Successfully joined " + server);
                 }
             }));
         }
