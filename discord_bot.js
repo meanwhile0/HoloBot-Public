@@ -904,6 +904,47 @@ bot.on("disconnected", function () {
 });
 
 bot.on("message", function (msg) {
+    if (!msg.channel.server && msg.content.search("https://discord.gg/") === 0) {
+        var oldServers = [];
+
+        for (var index in bot.servers) {
+            oldServers[index] = bot.servers[index];
+        }
+
+        console.log(bot.joinServer(msg.content,function(error,server) {
+            console.log("callback: " + arguments);
+            if(error || !server){
+                console.log("Failed: " + error);
+                bot.sendMessage(msg.author, "Failed to join: " + error);
+            } else {
+                if (oldServers.indexOf(server) !== -1) {
+                    console.log("Already in " + server);
+                    bot.sendMessage(msg.author, "I'm already in **" + server.name + "**!~");
+                    return;
+                }
+                else {
+                    var msgArray = [];
+
+                    msgArray.push("Heyo!~");
+                    msgArray.push("My name is HoloBot! You can just call me Holo!~");
+                    msgArray.push("I was invited to this server!~");
+                    msgArray.push("If I'm supposed to be here, you can use `~help` to receive a list of my commands!~");
+                    msgArray.push("Otherwise, feel free to kick me! But not too hard, I'm only fragile!~");
+                    bot.sendMessage(server.defaultChannel, msgArray);
+
+                    msgArray = [];
+                    msgArray.push("Heyo " + server.owner.username + "!~");
+                    msgArray.push("I've joined your server, **" + server.name + "** through an invitation I received!~");
+                    msgArray.push("If you like having me around, you can use `~help` to receive a list of my commands!~");
+                    msgArray.push("Otherwise, feel free to kick me! But try not to kick *too* hard, please~");
+                    bot.sendMessage(server.owner, msgArray);
+
+                    bot.sendMessage(msg.channel, "I have successfully joined **" + server.name + "**!~");
+                }
+            }
+        }));
+    }
+
     //check if not maintenance mode
     if (maintenance === "false" || Permissions.checkPermission(msg.author, "hehe")) {
         //check if message is a command
