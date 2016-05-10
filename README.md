@@ -1,3 +1,6 @@
+# Notice
+This bot is deprecated, please see the newer, better [MomijiBot](https://github.com/NightmareX91/discord-momijibot).
+
 # HoloBot-Public
 An alternate version of HoloBot more suited towards public use.
 
@@ -44,6 +47,3 @@ Before first run you will need to create an `auth.json` file. The email and pass
 
 To start the bot just run
 `node discord_bot.js`.
-
-# Or...
-if you're too lazy to do any of that shit just join [HoloBot's server](https://discord.gg/0ltfOcHtTFbikkwM) and use `~join-server`
